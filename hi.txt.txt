@@ -1,0 +1,6 @@
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil Dialog;\f2\fnil Calibri;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;\red0\green153\blue51;\red255\green255\blue0;}
+
+\f2\fs180\i0\b\ul0\cb3\cf2 ho\fs88 la\f1\fs24\b0\ul0\cb0\cf1\par
+}

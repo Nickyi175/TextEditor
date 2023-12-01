@@ -1,0 +1,7 @@
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil Dialog;\f2\fnil Calibri;\f3\fnil Berlin Sans FB;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;}
+
+\li0\ri0\fi0\f1\fs24\i0\b0\ul0\cf1 hola \f2\fs40\b me\f1\fs24\b0  \f2\fs40 llamo\f1\fs24  \f2 jo\f3\fs180\b\ul0\cf0 sue\f1\fs24\b0\ul0\cf1\par
+\ul0\par
+}

@@ -1,0 +1,6 @@
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil Dialog;\f2\fnil Agency FB;\f3\fnil Berlin Sans FB;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;\red204\green255\blue153;}
+
+\f1\fs24\i0\b0\cf1 MI MAMA ME \f2\fs16 MIM\f1\fs24 A MA ME MI \f2\fs140 MO \f3\fs96\cf2 MU MOOOOOOOOOO\b\cf0 OOOOOOOOOOOOOO\f1\fs24\b0\cf1\par
+}
