@@ -1,0 +1,7 @@
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil Dialog;\f2\fnil Agency FB;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;}
+
+\li0\ri0\fi0\f2\fs180\i0\b0\ul\cf1 vgchgv,chgv,chgv,chgv,chgv,\f1\fs24\ul0\par
+\ul0\par
+}

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,8 +25,8 @@ public class editor extends javax.swing.JFrame {
 
     public editor() {
         initComponents();
-        doc = vis.getStyledDocument();
-        estilo = vis.addStyle("n", null);
+        doc = panel.getStyledDocument();
+        estilo = panel.addStyle("n", null);
         f();
 
     }
@@ -41,7 +42,7 @@ public class editor extends javax.swing.JFrame {
         fuente.setModel(mod);
     }
     StyledDocument doc;
-    Style estilo;
+    Style estilo ;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -53,7 +54,7 @@ public class editor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        vis = new javax.swing.JTextPane();
+        panel = new javax.swing.JTextPane();
         color = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         sub = new javax.swing.JButton();
@@ -72,8 +73,12 @@ public class editor extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         byeIta = new javax.swing.JButton();
-        crearArchivo = new javax.swing.JButton();
         abrirArchivo = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        crearArchivo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Editor de texto");
@@ -110,7 +115,7 @@ public class editor extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 51, 102));
         jLabel3.setText("Color:");
 
-        jScrollPane2.setViewportView(vis);
+        jScrollPane2.setViewportView(panel);
 
         color.setBackground(new java.awt.Color(0, 0, 0));
         color.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +130,7 @@ public class editor extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Subrayar:");
 
-        sub.setBackground(new java.awt.Color(255, 255, 51));
+        sub.setBackground(new java.awt.Color(255, 255, 255));
         sub.setForeground(new java.awt.Color(0, 0, 0));
         sub.setText("Sub");
         sub.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,7 +150,7 @@ public class editor extends javax.swing.JFrame {
 
         quitar_sub.setBackground(new java.awt.Color(255, 255, 255));
         quitar_sub.setForeground(new java.awt.Color(0, 0, 0));
-        quitar_sub.setText("sub :( ");
+        quitar_sub.setText("Sub");
         quitar_sub.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 quitar_subMouseClicked(evt);
@@ -165,7 +170,7 @@ public class editor extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 51, 102));
         jLabel6.setText("Fondo:");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("...");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,21 +246,54 @@ public class editor extends javax.swing.JFrame {
             }
         });
 
-        crearArchivo.setBackground(new java.awt.Color(255, 255, 255));
-        crearArchivo.setForeground(new java.awt.Color(0, 0, 0));
-        crearArchivo.setText("Guardar");
-        crearArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                crearArchivoMouseClicked(evt);
-            }
-        });
-
         abrirArchivo.setBackground(new java.awt.Color(255, 255, 255));
         abrirArchivo.setForeground(new java.awt.Color(0, 0, 0));
         abrirArchivo.setText("Abrir archivo");
         abrirArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 abrirArchivoMouseClicked(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("Cortar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
+        jButton4.setText("Copiar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setForeground(new java.awt.Color(0, 0, 0));
+        jButton5.setText("Paste");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setBackground(new java.awt.Color(0, 51, 153));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Editor de Texto");
+        jLabel12.setOpaque(true);
+
+        crearArchivo.setBackground(new java.awt.Color(255, 255, 255));
+        crearArchivo.setForeground(new java.awt.Color(0, 0, 0));
+        crearArchivo.setText("Guardar");
+        crearArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearArchivoMouseClicked(evt);
             }
         });
 
@@ -266,98 +304,85 @@ public class editor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(bold)
+                            .addComponent(jButton2)
+                            .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(quitFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(byeBold)
+                            .addComponent(byeIta)
+                            .addComponent(quitar_sub)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(12, 12, 12))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fuente, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tamaño, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(abrirArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(crearArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(color)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton1)
-                                            .addComponent(bold)
-                                            .addComponent(jButton2)
-                                            .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(60, 60, 60)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel9))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(quitFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(byeBold)
-                                            .addComponent(byeIta)
-                                            .addComponent(quitar_sub))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(34, 34, 34))
+                                .addComponent(fuente, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4))
+                            .addComponent(tamaño, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(color))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(abrirArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(crearArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)))
+                .addGap(23, 23, 23))
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jScrollPane2)
+                .addGap(86, 86, 86))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bold, byeBold, byeIta, jButton1, jButton2, quitFondo, quitar_sub, sub});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {fuente, tamaño});
 
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {abrirArchivo, crearArchivo});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton3, jButton4, jButton5});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(quitar_sub)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(quitFondo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(byeBold, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(byeIta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(fuente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(tamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(crearArchivo)
-                                .addGap(13, 13, 13)
-                                .addComponent(abrirArchivo)))
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)
+                        .addComponent(quitar_sub)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(color))
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel6))
+                        .addComponent(quitFondo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(byeBold, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(byeIta))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,13 +409,41 @@ public class editor extends javax.swing.JFrame {
                                         .addComponent(jLabel9))
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel11))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(fuente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jButton3)
+                                    .addComponent(jButton5)
+                                    .addComponent(jButton4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(tamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(color))
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(crearArchivo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(abrirArchivo)))))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addGap(33, 33, 33))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bold, byeBold, byeIta, jButton1, jButton2, quitFondo, quitar_sub, sub});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {fuente, tamaño});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {abrirArchivo, crearArchivo, jButton3, jButton4, jButton5});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -413,7 +466,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setForeground(estilo, JColorChooser.showDialog(this, "Elija color", Color.yellow));
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("error en color");
         }
@@ -423,7 +476,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setUnderline(estilo, true);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
 //            sub.setVisible(false);
 //            quitar_sub.setVisible(true);
             System.out.println("subrayó");
@@ -437,7 +490,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setUnderline(estilo, false);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
 //            sub.setVisible(true);
 //            quitar_sub.setVisible(false);
             System.out.println("quitó subrayado");
@@ -448,14 +501,14 @@ public class editor extends javax.swing.JFrame {
 
     private void tamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamañoActionPerformed
         StyleConstants.setFontSize(estilo, Integer.parseInt(tamaño.getSelectedItem().toString()));
-        doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+        doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
     }//GEN-LAST:event_tamañoActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
             StyleConstants.setBackground(estilo, Color.YELLOW);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("ups");
         }
@@ -465,7 +518,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setBackground(estilo, Color.white);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("ups");
         }
@@ -481,7 +534,7 @@ public class editor extends javax.swing.JFrame {
 
     private void fuenteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fuenteItemStateChanged
         StyleConstants.setFontFamily(estilo, fuente.getSelectedItem().toString());
-        doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+        doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
 
     }//GEN-LAST:event_fuenteItemStateChanged
 
@@ -489,7 +542,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setBold(estilo, true);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("error bold");
         }
@@ -499,7 +552,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setBold(estilo, false);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("error quitar bold");
         }
@@ -509,7 +562,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setItalic(estilo, true);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("error italic");
         }
@@ -519,7 +572,7 @@ public class editor extends javax.swing.JFrame {
         try {
             StyleConstants.setItalic(estilo, false);
 
-            doc.setCharacterAttributes(vis.getSelectionStart(), vis.getSelectionEnd() - vis.getSelectionStart(), vis.getStyle("n"), true);
+            doc.setCharacterAttributes(panel.getSelectionStart(), panel.getSelectionEnd() - panel.getSelectionStart(), panel.getStyle("n"), true);
         } catch (Exception ex) {
             System.out.println("ups");
         }
@@ -538,9 +591,9 @@ public class editor extends javax.swing.JFrame {
 
             try {
                 FileInputStream fis = new FileInputStream(file);
-                vis.setText("");
+                panel.setText("");
                 JOptionPane.showMessageDialog(null, "SE HA ABIERTO EL ARCHIVO");
-                StyledDocument doc = vis.getStyledDocument();
+                StyledDocument doc = panel.getStyledDocument();
                 RTFEditorKit kit = new RTFEditorKit();
                 kit.read(fis, doc, 0);
 
@@ -553,7 +606,7 @@ public class editor extends javax.swing.JFrame {
     }//GEN-LAST:event_abrirArchivoMouseClicked
 
     private void crearArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearArchivoMouseClicked
-        if (vis.getText().isEmpty() || vis.getText().isBlank()) {
+        if (panel.getText().isEmpty() || panel.getText().isBlank()) {
             JOptionPane.showMessageDialog(null, "NO HA INGRESADO TEXTO");
         } else {
             JFileChooser fac = new JFileChooser();
@@ -564,11 +617,11 @@ public class editor extends javax.swing.JFrame {
             if (AA == JFileChooser.APPROVE_OPTION) {
                 File file = new File(fac.getSelectedFile().getAbsolutePath() + ".txt");
                 try {
-                    StyledDocument doc = vis.getStyledDocument();
+                    StyledDocument doc = panel.getStyledDocument();
                     FileOutputStream fos = new FileOutputStream(file);
                     RTFEditorKit kit = new RTFEditorKit();
                     kit.write(fos, doc, 0, doc.getLength());
-                    vis.setText("");
+                    panel.setText("");
                     JOptionPane.showMessageDialog(null, "ARCHIVO GUARDADO");
                 } catch (FileNotFoundException e1) {
                     e1.printStackTrace();
@@ -584,6 +637,21 @@ public class editor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_subActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        panel.paste();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       panel.cut();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        panel.copy();
+        panel.removeAll();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -598,9 +666,13 @@ public class editor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> fuente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -611,11 +683,11 @@ public class editor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane panel;
     private javax.swing.JButton quitFondo;
     private javax.swing.JButton quitar_sub;
     private javax.swing.JButton sub;
     private javax.swing.JComboBox<String> tamaño;
-    private javax.swing.JTextPane vis;
     // End of variables declaration//GEN-END:variables
 
 }
